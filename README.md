@@ -110,3 +110,7 @@ Acesse a prévia do livro [aqui](https://github.com/ramonfontes/mn-wifi-book-pt/
 
 - Christian Rodolfo Esteve Rothenberg é Professor Doutor no Departamento de Engenharia de Computação e Automação Industrial (DCA) da  Faculdade de Engenharia Elétrica e
 Computação (FEEC) pela Universidade Estadual de Campinas (UNICAMP) desde 2013. Possui graduação em Ingeniero Superior de Telecomunicación pela Universidad Politécnica de Madrid (2004), mestrado em Dipl. Ing. Elektrotechnik pela Darmstadt University of Technology (2006) e doutorado em Engenharia Elétrica pela UNICAMP (2010).  
+
+## Onde comprar (versões impressa e e-book)
+
+[Clube dos autores](https://www.clubedeautores.com.br/livro/emulando-redes-sem-fio-com-mininet-wifi#.XKzn1XVKgqo)
