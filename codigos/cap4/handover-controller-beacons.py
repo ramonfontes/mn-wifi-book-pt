@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# autor: Ramon dos Reis Fontes
+# livro: Emulando Redes sem Fio com Mininet-WiFi
+# github: https://github.com/ramonfontes/mn-wifi-book-pt
+
 from mininet.node import RemoteController, UserSwitch
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP
@@ -11,8 +15,9 @@ from mn_wifi.wmediumdConnector import interference
 
 def topology():
     "Create a network."
-    net = Mininet_wifi(controller=RemoteController, accessPoint=UserAP, switch=UserSwitch,
-                       link=wmediumd, wmediumd_mode=interference)
+    net = Mininet_wifi(controller=RemoteController, accessPoint=UserAP,
+                       switch=UserSwitch, link=wmediumd,
+                       wmediumd_mode=interference)
 
     info("*** Creating nodes\n")
     sta1 = net.addStation('sta1', position='15,20,0')

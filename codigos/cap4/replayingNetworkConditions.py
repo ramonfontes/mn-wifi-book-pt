@@ -1,6 +1,12 @@
 #!/usr/bin/python
 
-from mininet.log import setLogLevel
+# autor: Ramon dos Reis Fontes
+# livro: Emulando Redes sem Fio com Mininet-WiFi
+# github: https://github.com/ramonfontes/mn-wifi-book-pt
+
+import os
+
+from mininet.log import setLogLevel, info
 from mininet.node import Controller
 from mn_wifi.net import Mininet_wifi
 from mn_wifi.cli import CLI_wifi
@@ -12,7 +18,7 @@ def topology():
     "Create a network."
     net = Mininet_wifi( controller=Controller )
 
-    print("*** Creating nodes")
+    info("*** Creating nodes")
     sta1 = net.addStation( 'sta1', mac='00:00:00:00:00:01',
                            ip='192.168.0.1/24',
                            position='47.28,50,0' )
@@ -23,10 +29,10 @@ def topology():
                               channel='1', position='50,50,0' )
     c0 = net.addController('c0', controller=Controller, port=6653)
 
-    print("*** Configuring wifi nodes")
+    info("*** Configuring wifi nodes")
     net.configureWifiNodes()
 
-    print("*** Starting network")
+    info("*** Starting network")
     net.build()
     c0.start()
     ap3.start( [c0] )
@@ -40,17 +46,18 @@ def topology():
     else:
         sta2.cmd('pushd ~/Downloads; python -m http.server 80 &')
 
-    getTrace(sta1, 'book/replayingNetworkConditions/clientTrace.txt')
-    getTrace(sta2, 'book/replayingNetworkConditions/serverTrace.txt')
+    path = os.path.dirname(os.path.abspath(__file__))
+    getTrace(sta1, '%s/replayingNetworkConditions/clientTrace.txt' % path)
+    getTrace(sta2, '%s/replayingNetworkConditions/serverTrace.txt' % path)
 
     replayingNetworkConditions.addNode(sta1)
     replayingNetworkConditions.addNode(sta2)
     replayingNetworkConditions(net)
 
-    print("*** Running CLI")
+    info("*** Running CLI")
     CLI_wifi( net )
 
-    print("*** Stopping network")
+    info("*** Stopping network")
     net.stop()
 
 def getTrace(sta, file):

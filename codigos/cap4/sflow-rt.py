@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# autor: Ramon dos Reis Fontes
+# livro: Emulando Redes sem Fio com Mininet-WiFi
+# github: https://github.com/ramonfontes/mn-wifi-book-pt
+
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.link import wmediumd, mesh
