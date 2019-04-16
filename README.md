@@ -114,3 +114,4 @@ Computação (FEEC) pela Universidade Estadual de Campinas (UNICAMP) desde 2013.
 ## Onde comprar (versões impressa e e-book)
 
 [Clube dos autores](https://www.clubedeautores.com.br/livro/emulando-redes-sem-fio-com-mininet-wifi#.XKzn1XVKgqo)
+[Amazon.com](https://www.amazon.com/s?k=mininet-wifi&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss)
