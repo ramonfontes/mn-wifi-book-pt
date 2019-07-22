@@ -56,8 +56,8 @@ def topology():
 
     h1.cmdPrint('rc.radiusd start')
     ap1.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
-#    s1.cmd('ovs-ofctl add-flow s1 in_port=1,priority=65535,'
- #           'dl_type=0x800,nw_proto=17,tp_dst=1812,actions=2,controller')
+    s1.cmd('ovs-ofctl add-flow s1 in_port=1,priority=65535,'
+           'dl_type=0x800,nw_proto=17,tp_dst=1812,actions=2,controller')
 
     info("*** Running CLI\n")
     CLI_wifi(net)
