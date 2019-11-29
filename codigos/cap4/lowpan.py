@@ -4,28 +4,25 @@
 # livro: Emulando Redes sem Fio com Mininet-WiFi
 # github: https://github.com/ramonfontes/mn-wifi-book-pt
 
+
 from mininet.log import setLogLevel, info
 from mn_wifi.cli import CLI_wifi
 from mn_wifi.net import Mininet_wifi
-from mn_wifi.sixLoWPAN.link import sixLoWPANLink
 
 
 def topology():
     "Create a network."
-    net = Mininet_wifi()
+    net = Mininet_wifi(iot_module='fakelb')
+    # iot_module: fakelb or mac802154_hwsim
+    # mac802154_hwsim is only supported from kernel 4.18
 
     info("*** Creating nodes\n")
-    sta1 = net.add6LoWPAN('sta1', ip='2001::1/64')
-    sta2 = net.add6LoWPAN('sta2', ip='2001::2/64')
-    sta3 = net.add6LoWPAN('sta3', ip='2001::3/64')
+    net.addSensor('sensor1', ip6='2001::1/64', panid='0xbeef')
+    net.addSensor('sensor2', ip6='2001::2/64', panid='0xbeef')
+    net.addSensor('sensor3', ip6='2001::3/64', panid='0xbeef')
 
     info("*** Configuring nodes\n")
     net.configureWifiNodes()
-
-    info("*** Associating Nodes\n")
-    net.addLink(sta1, cls=sixLoWPANLink, panid='0xbeef')
-    net.addLink(sta2, cls=sixLoWPANLink, panid='0xbeef')
-    net.addLink(sta3, cls=sixLoWPANLink, panid='0xbeef')
 
     info("*** Starting network\n")
     net.build()
