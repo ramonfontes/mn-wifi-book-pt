@@ -7,7 +7,7 @@ from mininet.node import RemoteController
 from mininet.log import setLogLevel, info
 from mn_wifi.net import MininetWithControlWNet
 from mn_wifi.node import UserAP
-from mn_wifi.cli import CLI_wifi
+from mn_wifi.cli import CLI
 from mn_wifi.link import wmediumd
 from mn_wifi.wmediumdConnector import interference
 import os
@@ -56,7 +56,7 @@ def topology():
     os.system('ip link set hwsim0 up')
 
     info("*** Running CLI\n")
-    CLI_wifi(net)
+    CLI(net)
 
     info("*** Stopping network\n")
     net.stop()

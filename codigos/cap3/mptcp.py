@@ -7,7 +7,7 @@
 from mininet.log import setLogLevel, info
 from mininet.node import Controller
 from mn_wifi.net import Mininet_wifi
-from mn_wifi.cli import CLI_wifi
+from mn_wifi.cli import CLI
 import sys
 
 
@@ -76,7 +76,7 @@ def topology(is_mptcp):
         sta1.cmd('iw dev sta1-wlan1 disconnect')
 
     info("*** Running CLI\n")
-    CLI_wifi( net )
+    CLI( net )
 
     info("*** Stopping network\n")
     net.stop()

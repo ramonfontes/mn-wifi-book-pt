@@ -9,7 +9,7 @@ import sys, os
 
 from mininet.node import OVSKernelSwitch, Controller, RemoteController
 from mininet.log import setLogLevel, info
-from mn_wifi.cli import CLI_wifi
+from mn_wifi.cli import CLI
 from mn_wifi.net import Mininet_wifi
 
 
@@ -58,7 +58,7 @@ def topology(broadcast):
     h1.cmd('ip link set bond0 up')
 
     info("*** Running CLI\n")
-    CLI_wifi(net)
+    CLI(net)
 
     os.system('rmmod bonding')
 

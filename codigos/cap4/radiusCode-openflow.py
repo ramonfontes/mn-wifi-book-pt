@@ -7,7 +7,7 @@
 from mininet.node import RemoteController, UserSwitch
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP
-from mn_wifi.cli import CLI_wifi
+from mn_wifi.cli import CLI
 from mn_wifi.net import Mininet_wifi
 from mn_wifi.link import wmediumd
 from mn_wifi.wmediumdConnector import interference
@@ -60,7 +60,7 @@ def topology():
            'dl_type=0x800,nw_proto=17,tp_dst=1812,actions=2,controller')
 
     info("*** Running CLI\n")
-    CLI_wifi(net)
+    CLI(net)
 
     os.system('pkill radiusd')
 

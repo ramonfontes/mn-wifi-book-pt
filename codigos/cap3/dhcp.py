@@ -5,7 +5,7 @@
 # github: https://github.com/ramonfontes/mn-wifi-book-pt
 
 from mininet.log import setLogLevel, info
-from mn_wifi.cli import CLI_wifi
+from mn_wifi.cli import CLI
 from mn_wifi.net import Mininet_wifi
 
 
@@ -36,7 +36,7 @@ def topology():
     h1.cmd("echo 1 > /proc/sys/net/ipv4/ip_forward")
 
     info("*** Running CLI\n")
-    CLI_wifi(net)
+    CLI(net)
 
     info("*** Stopping network\n")
     net.stop()
