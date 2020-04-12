@@ -30,8 +30,8 @@ def topology(is_mptcp):
     net.configureWifiNodes()
 
     info("*** Associating and Creating links\n")
-    net.addLink(ap1, sta1)
-    net.addLink(ap2, sta1)
+    net.addLink(ap1, sta1, 0, 0)
+    net.addLink(ap2, sta1, 0, 1)
     net.addLink(ap1, r1, bw=1000)
     net.addLink(ap2, r1, bw=1000)
     net.addLink(r1, h1, bw=100)
