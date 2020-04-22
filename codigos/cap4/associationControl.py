@@ -12,7 +12,7 @@ from mn_wifi.net import Mininet_wifi
 
 def topology():
     "Create a network."
-    net = Mininet_wifi(controller=Controller)
+    net = Mininet_wifi(controller=Controller, ac_method='ssf')
 
     info("*** Creating nodes\n")
     net.addStation('sta1', mac='00:00:00:00:00:02', ip='10.0.0.2/8', position='20,50,0')
@@ -30,8 +30,6 @@ def topology():
 
     info("*** Configuring wifi nodes\n")
     net.configureWifiNodes()
-
-    net.setAssociationCtrl('ssf')
 
     info("*** Associating and Creating links\n")
     net.addLink(ap1, ap2)
