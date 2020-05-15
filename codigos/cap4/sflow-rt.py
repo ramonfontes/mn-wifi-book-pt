@@ -35,6 +35,8 @@ def topology():
     info("*** Associating Stations\n")
     net.addLink(sta1, ap1)
     net.addLink(sta2, ap2)
+
+    info("*** Creating mesh links\n")
     net.addLink(ap1, intf='ap1-wlan2', cls=mesh, ssid='mesh-ssid', channel=5)
     net.addLink(ap2, intf='ap2-wlan2', cls=mesh, ssid='mesh-ssid', channel=5)
     net.addLink(ap3, intf='ap3-wlan2', cls=mesh, ssid='mesh-ssid', channel=5)
