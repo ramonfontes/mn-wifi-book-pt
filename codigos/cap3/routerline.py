@@ -39,25 +39,21 @@ class LinuxRouter( Node ):	# from the Mininet library
 
 class RTopo(Topo):
     def __init__(self, **kwargs):
-#    def build(self, **_kwargs):     # special names?
         super(RTopo, self).__init__(**kwargs)
         for key in kwargs:
            if key == 'N': N=kwargs[key]
 
         h1 = self.addHost( 'h1', ip=ip(0,10,24), defaultRoute='via '+ ip(0,2) )
         h2 = self.addHost( 'h2', ip=ip(N,10,24), defaultRoute='via '+ ip(N,1) )
- 
-	rlist = []
 
+        rlist = []
         for i in range(1,N+1):
             ri = self.addHost('r'+str(i), cls=LinuxRouter)
             rlist.append(ri)
 
         self.addLink( h1, rlist[0], intfName1 = 'h1-eth0', intfName2 = 'r1-eth0')
-
         for i in range(1,N):  # link from ri to r[i+1]
             self.addLink(rlist[i-1], rlist[i], inftname1 = 'r'+str(i)+'-eth1', inftname2 = 'r'+str(i+1)+'-eth0')
- 
         self.addLink( rlist[N-1], h2, intfName1 = 'r'+str(N)+'-eth1', intfName2 = 'h2-eth0')
 
 
@@ -140,4 +136,3 @@ r3: route add -net 10.0.0.0/24 gw 10.0.2.1
 r2: route add -net 10.0.0.0/24 gw 10.0.1.1
 
 """
-

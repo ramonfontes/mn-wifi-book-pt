@@ -10,7 +10,7 @@ from mininet.log import setLogLevel, info
 from mininet.node import Controller
 from mn_wifi.net import Mininet_wifi
 from mn_wifi.cli import CLI
-from mn_wifi.replaying import replayingNetworkConditions
+from mn_wifi.replaying import ReplayingNetworkConditions
 from sys import version_info as py_version_info
 
 
